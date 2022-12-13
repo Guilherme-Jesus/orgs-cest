@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, View } from "react-native";
+import { Button, Image, TouchableOpacity, View } from "react-native";
 import TextProp from "../../../components/Text";
 export default function Details({
   styles,
@@ -8,6 +8,7 @@ export default function Details({
   nomeFazenda,
   descricao,
   preco,
+  botao,
 }) {
   return (
     <>
@@ -18,6 +19,10 @@ export default function Details({
       </View>
       <TextProp style={styles.descricao}>{descricao}</TextProp>
       <TextProp style={styles.preco}> {preco}</TextProp>
+
+      <TouchableOpacity style={styles.botao} onPress={() => {}}>
+        <TextProp style={styles.textoBotao}>{botao}</TextProp>
+      </TouchableOpacity>
     </>
   );
 }
