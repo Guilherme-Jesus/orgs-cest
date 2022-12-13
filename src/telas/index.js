@@ -1,6 +1,7 @@
 import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
 import topo from "../../assets/topo.png";
 import logo from "../../assets/logo.png";
+
 export default function Cesta() {
   return (
     <>
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
     fontSize: 26,
     lineHeight: 42,
     color: "#464646",
-    fontWeight: "bold",
+    fontFamily: "MontserratBold",
   },
   fazenda: {
     flexDirection: "row",
@@ -61,6 +62,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 26,
     marginLeft: 12,
+    fontFamily: "MontserratRegular",
   },
   descricao: {
     color: "#A3A3A3",
