@@ -1,20 +1,23 @@
 import React from "react";
 import { Image, View } from "react-native";
 import TextProp from "../../../components/Text";
-import logo from "../../../../assets/logo.png";
-export default function Details({ styles }) {
+export default function Details({
+  styles,
+  nome,
+  logoFarm,
+  nomeFazenda,
+  descricao,
+  preco,
+}) {
   return (
     <>
-      <TextProp style={styles.nome}>Cesta de Verduras</TextProp>
+      <TextProp style={styles.nome}>{nome}</TextProp>
       <View style={styles.fazenda}>
-        <Image source={logo} style={styles.logo} />
-        <TextProp style={styles.nomeFazenda}>Jenny Jack Farm</TextProp>
+        <Image source={logoFarm} style={styles.logo} />
+        <TextProp style={styles.nomeFazenda}>{nomeFazenda}</TextProp>
       </View>
-      <TextProp style={styles.descricao}>
-        Cesta com produtos selecionados cuidadosamente da fazenda para sua
-        cozinha
-      </TextProp>
-      <TextProp style={styles.preco}>R$40,00</TextProp>
+      <TextProp style={styles.descricao}>{descricao}</TextProp>
+      <TextProp style={styles.preco}> {preco}</TextProp>
     </>
   );
 }

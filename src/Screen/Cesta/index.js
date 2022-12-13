@@ -2,12 +2,12 @@ import { Dimensions, StyleSheet, View } from "react-native";
 import Details from "./components/Details";
 import Topo from "./components/Topo";
 
-export default function Cesta() {
+export default function Cesta({ topo, detalhes }) {
   return (
     <>
-      <Topo styles={styles} />
+      <Topo {...topo} styles={styles} />
       <View style={styles.cesta}>
-        <Details styles={styles} />
+        <Details styles={styles} {...detalhes} />
       </View>
     </>
   );
