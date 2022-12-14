@@ -1,17 +1,41 @@
-import { Dimensions, ScrollView, StyleSheet, View } from "react-native";
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  ScrollView,
+  StyleSheet,
+  View,
+} from "react-native";
+import TextProp from "../../components/Text";
 import Details from "./components/Details";
 import Itens from "./components/Itens";
 import Topo from "./components/Topo";
 
 export default function Cesta({ topo, detalhes, itens }) {
   return (
-    <ScrollView>
-      <Topo {...topo} styles={styles} />
-      <View style={styles.cesta}>
-        <Details styles={styles} {...detalhes} />
-        <Itens styles={styles} {...itens} />
-      </View>
-    </ScrollView>
+    <>
+      <FlatList
+        data={itens.lista}
+        renderItem={({ item: { nome, imagem } }) => (
+          <View key={nome} style={styles.item}>
+            <Image style={styles.imagemItens} source={imagem} />
+            <TextProp style={styles.nomeItens}>{nome}</TextProp>
+          </View>
+        )}
+        ListHeaderComponent={() => {
+          return (
+            <>
+              <Topo {...topo} styles={styles} />
+              <View style={styles.cesta}>
+                <Details styles={styles} {...detalhes} />
+                <Itens styles={styles} {...itens} />
+              </View>
+            </>
+          );
+        }}
+        keyExtractor={({ nome }) => nome}
+      />
+    </>
   );
 }
 
@@ -93,6 +117,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#ECECEC",
     paddingVertical: 16,
+    marginHorizontal: 16,
     alignItems: "center",
   },
   imagemItens: {
