@@ -1,15 +1,17 @@
-import { Dimensions, StyleSheet, View } from "react-native";
+import { Dimensions, ScrollView, StyleSheet, View } from "react-native";
 import Details from "./components/Details";
+import Itens from "./components/Itens";
 import Topo from "./components/Topo";
 
-export default function Cesta({ topo, detalhes }) {
+export default function Cesta({ topo, detalhes, itens }) {
   return (
-    <>
+    <ScrollView>
       <Topo {...topo} styles={styles} />
       <View style={styles.cesta}>
         <Details styles={styles} {...detalhes} />
+        <Itens styles={styles} {...itens} />
       </View>
-    </>
+    </ScrollView>
   );
 }
 
@@ -77,5 +79,31 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 23,
     fontWeight: "bold",
+  },
+  tituloItens: {
+    color: "#464646",
+    fontWeight: "bold",
+    marginTop: 32,
+    marginBottom: 8,
+    fontSize: 20,
+    lineHeight: 32,
+  },
+  item: {
+    flexDirection: "row",
+    borderBottomWidth: 1,
+    borderBottomColor: "#ECECEC",
+    paddingVertical: 16,
+    alignItems: "center",
+  },
+  imagemItens: {
+    width: 46,
+    height: 46,
+  },
+
+  nomeItens: {
+    fontSize: 16,
+    lineHeight: 26,
+    marginLeft: 11,
+    color: "#464646",
   },
 });
